@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – RB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at 20% 30%, #000000, #060a0f, #0d0d0d);
+      color: #e8f9ff;
+      line-height: 1.7;
+      overflow-x: hidden;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {to {opacity: 1;}}
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(0,255,255,0.1);
+      z-index: 10;
+    }
+    nav a {
+      color: #dff9ff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00e1ff;
+      text-shadow: 0 0 8px #00e1ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 140px;
+      padding-bottom: 40px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,255,255,0.04));
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, #00e1ff, #89f6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      color: #bdeeff;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+      color: #d8f9ff;
+      animation: fadeSlide 1.2s ease;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .skills {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0,225,255,0.05);
+      animation: fadeSlide 1.5s ease;
+    }
+    .skills h2 {
+      color: #00e1ff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .skills ul {
+      list-style: none;
+      padding: 0;
+    }
+    .skills li {
+      margin-bottom: 22px;
+      padding-left: 15px;
+      border-left: 2px solid rgba(0,225,255,0.2);
+    }
+    .skills strong {
+      color: #8df3ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #777;
+      margin-top: 60px;
+      background: #050505;
+      font-size: 0.9rem;
+    }
+
+    /* Floating glow orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.2;
+      animation: drift 20s linear infinite alternate;
+    }
+    .orb.one {
+      width: 250px;
+      height: 250px;
+      background: #00e1ff;
+      top: 10%;
+      left: -80px;
+    }
+    .orb.two {
+      width: 200px;
+      height: 200px;
+      background: #8df3ff;
+      bottom: 10%;
+      right: -60px;
+      animation-delay: 5s;
+    }
+    @keyframes drift {
+      from {transform: translateY(0);}
+      to {transform: translateY(-50px);}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div><strong>RB</strong></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="Projects.html">Projects</a>
+      <a href="contact.html">Contact</a>  
+    </div>
+  </nav>
+
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <section class="hero">
+    <h1>About Me</h1>
+    <p>Hey! I’m <strong>Rohit Bharadwaj</strong> — a curious learner who loves turning ideas into real things through code.</p>
+  </section>
+
+  <div class="container">
+    <div class="intro">
+      <p>It all started with curiosity — I wanted to understand how technology really works. Over time, I began exploring data, code, and the way information tells stories.  
+      I’m still learning, still experimenting, but every new project teaches me something exciting. This website is my space to share that journey — not a finished story, but one that’s being written line by line.</p>
+    </div>
+
+    <div class="skills">
+      <h2>My Skills</h2>
+      <ul>
+        <li><strong>Python:</strong> The language I use to bring ideas to life — from simple logic to complex data analysis.</li>
+        <li><strong>Pandas:</strong> My go-to library for cleaning, exploring, and transforming data into something meaningful.</li>
+        <li><strong>NumPy:</strong> It helps me handle large sets of numbers efficiently — perfect for math-heavy work and analysis.</li>
+        <li><strong>Matplotlib:</strong> Where raw data turns into visuals. I use it to create charts that make data easy to understand.</li>
+        <li><strong>HTML & CSS:</strong> Together, they help me design and structure what you see here — making digital ideas look beautiful.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>© 2025 Rohith Bharadwaj. All rights reserved.</footer>
+
+  <script>
+    // Smooth fade transition on page load
+    document.body.style.opacity = 0;
+    window.onload = () => {
+      document.body.style.opacity = 1;
+    };
+
+    // Page fade when navigating
+    const links = document.querySelectorAll("a[href]");
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        const href = link.getAttribute("href");
+        if (!href.startsWith("#")) {
+          e.preventDefault();
+          document.body.style.opacity = 0;
+          setTimeout(() => window.location = href, 500);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

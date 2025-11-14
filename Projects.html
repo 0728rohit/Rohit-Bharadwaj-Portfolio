@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects – RB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #e8f9ff;
+      background: radial-gradient(circle at 20% 30%, #020202, #030a14, #001219);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {to {opacity: 1;}}
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,255,255,0.1);
+      z-index: 10;
+    }
+    nav a {
+      color: #d0f0ff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00e1ff;
+      text-shadow: 0 0 8px #00e1ff;
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #00e1ff;
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out alternate;
+    }
+    @keyframes twinkle {
+      0% {opacity: 0.3; transform: scale(1);}
+      100% {opacity: 1; transform: scale(1.8);}
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #00e1ff, #8df3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .project {
+      background: rgba(255,255,255,0.05);
+      margin-bottom: 25px;
+      padding: 25px;
+      border-radius: 16px;
+      transition: 0.4s ease;
+    }
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(0,225,255,0.15);
+    }
+    .project h2 {
+      color: #00e1ff;
+      margin-bottom: 10px;
+    }
+    .project p {
+      color: #c8e8f9;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+    .project a {
+      color: #b8f9ff;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+    .project a:hover {
+      color: #00e1ff;
+    }
+
+    footer {
+      background: #050505;
+      text-align: center;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div><strong>RB</strong></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="Projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+     </div>
+  </nav>
+
+  <div class="stars"></div>
+
+  <div class="container">
+    <h1>My Projects</h1>
+
+    <div class="project">
+      <h2>🏏 IPL Data Analysis</h2>
+      <p>This project dives into IPL match data using Python and Pandas. I cleaned raw match files, merged stats, and analyzed team performances, player trends, and match outcomes. It helped me understand real-world data manipulation and visualization workflows.</p>
+      <a href="https://github.com/0728rohit/IPL-data-analysis-project" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h2>🌍 Cricket World Cup 2023 Analysis </h2>
+      <p>A full analysis of the 2023 Cricket World Cup — tracking runs, strike rates, and performance comparisons. I focused on turning large CSV datasets into meaningful visuals, learning how to find stories in sports data.</p>
+      <a href="https://github.com/0728rohit/Cricket-World-Cup-23-Data-Analysis" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h2>🎬 Netflix Data Analysis</h2>
+      <p>This one was all about exploring Netflix titles and viewer trends. Using Pandas and Matplotlib, I identified patterns in genres, release years, and content types — a fun way to mix entertainment with data science practice.</p>
+      <a href="https://github.com/0728rohit/netflix-data-analysis" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+
+  <footer>© 2025 Rohith Bharadwaj. All rights reserved.</footer>
+
+  <script>
+    // Smooth transition
+    document.body.style.opacity = 0;
+    window.onload = () => {
+      document.body.style.opacity = 1;
+      const stars = document.querySelector('.stars');
+      for (let i = 0; i < 70; i++) {
+        const s = document.createElement('div');
+        s.classList.add('star');
+        s.style.top = Math.random() * 100 + '%';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.animationDuration = 2 + Math.random() * 3 + 's';
+        stars.appendChild(s);
+      }
+    };
+
+    const links = document.querySelectorAll("a[href]");
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        const href = link.getAttribute("href");
+        if (!href.startsWith("#")) {
+          e.preventDefault();
+          document.body.style.opacity = 0;
+          setTimeout(() => window.location = href, 500);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
